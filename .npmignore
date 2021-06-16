@@ -1,0 +1,6 @@
+demo
+node_modules
+src
+tests
+*.config.js
+.tgz
