@@ -67,5 +67,3 @@ export default {
 		};
 	},
 };
-
-output.exports = "default";
