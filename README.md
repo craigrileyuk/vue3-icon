@@ -1,9 +1,4 @@
-Consider using the [webcomponent version](https://github.com/JamesCoyle/svg-icon) of this component for an icon component that can be used in any modern browser with any framework.
-
-# Vue Icon Component
-
-[![](https://chips.james-coyle.now.sh/npm/version/@jamescoyle/vue-icon)](https://www.npmjs.com/package/@jamescoyle/vue-icon)
-[![](https://chips.james-coyle.now.sh/npm/downloads/@jamescoyle/vue-icon)](https://www.npmjs.com/package/@jamescoyle/vue-icon)
+# Vue 3 Icon Component
 
 An icon component which makes it easy to render SVG path based icons in any Vue project. Provides several helpful properties to manipulate the icon and supports any icon pack which provides icons as a single SVG path to be displayed on a square viewbox.
 
@@ -11,12 +6,12 @@ An icon component which makes it easy to render SVG path based icons in any Vue 
 
 1. Install from NPM
    ```
-   npm install @jamescoyle/vue-icon
+   npm install vue3-icon
    ```
 
 2. Import into your project
    ``` 
-   import SvgIcon from '@jamescoyle/vue-icon'
+   import SvgIcon from 'vue3-icon'
    ```
 
 ## SFC Example
@@ -29,7 +24,7 @@ The following example uses [@mdi/js](https://www.npmjs.com/package/@mdi/js) whic
 
 
 <script>
-import SvgIcon from '@jamescoyle/vue-icon'
+import SvgIcon from 'vue3-icon'
 import { mdiAccount } from '@mdi/js'
 
 export default {
