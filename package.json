@@ -2,10 +2,11 @@
   "name": "vue3-icon",
   "version": "1.0.2",
   "description": "Icon component for Vue 3",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "dist/vue3-icon.cjs.js",
+  "module": "dist/vue3-icon.es.js",
   "scripts": {
     "build": "npx rimraf dist && bili --format cjs --format umd --format umd-min --format es --external vue --moduleName vue3-icon",
+    "build:vite": "vite build -c vite-build.config.js",
     "test": "vue-cli-service test:unit",
     "demo": "vite serve",
     "demo:build": "vite build",

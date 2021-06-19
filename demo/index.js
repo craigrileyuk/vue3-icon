@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import Vue3Icon from "../src/index.js";
+import Vue3Icon from "../";
 import App from "./App.vue";
 
 const app = createApp(App);

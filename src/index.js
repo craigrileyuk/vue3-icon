@@ -1,4 +1,5 @@
 import { h, computed } from "vue";
+import { svgStyle, pathStyle } from "./style";
 
 const iconSettings = {
 	mdi: {
@@ -40,10 +41,10 @@ export default {
 	setup(props, context) {
 		const generatedStyle = computed(() => {
 			return {
+				...svgStyle,
 				"--sx": ["both", "horizontal"].includes(props.flip) ? "-1" : "1",
 				"--sy": ["both", "vertical"].includes(props.flip) ? "-1" : "1",
 				"--r": isNaN(props.rotate) ? props.rotate : props.rotate + "deg",
-				transform: "rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1))",
 			};
 		});
 		const defaults = computed(() => iconSettings[props.type] || iconSettings.default);
@@ -51,7 +52,7 @@ export default {
 		const viewboxValue = computed(() => props.viewbox || defaults.value.viewbox);
 
 		return () => {
-			const path = h("path", { d: props.path, style: { fill: "currentColor" } });
+			const path = h("path", { d: props.path, style: { ...pathStyle } });
 
 			return h(
 				"svg",
