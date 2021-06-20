@@ -2,5 +2,6 @@ demo
 node_modules
 src
 tests
+.babelrc
 *.config.js
 *.tgz
