@@ -1,7 +1,7 @@
 import { createApp } from "vue";
-import Vue3Icon from "../";
+import SvgIcon from "../src/index.js";
 import App from "./App.vue";
 
 const app = createApp(App);
-app.component("vue3-icon", Vue3Icon);
+app.component("SvgIcon", SvgIcon);
 app.mount("#app");

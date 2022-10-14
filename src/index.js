@@ -1,6 +1,6 @@
 import { h, computed } from "vue";
-import { svgStyle, pathStyle } from "./style";
-import { iconSettings } from "./iconSettings";
+import { svgStyle, pathStyle } from "./style.js";
+import { iconSettings } from "./iconSettings.js";
 
 export default {
 	name: "icon",
@@ -8,23 +8,29 @@ export default {
 		/**
 		 * The icon type, e.g. mdi or simple-icons
 		 */
-		type: String,
+		type: {
+			type: String,
+			default: "mdi"
+		},
 		/**
 		 * The FontAwesome icon object
 		 */
-		faIcon: Object,
+		faIcon: {
+			type: Object,
+			default: null
+		},
 		/**
 		 * The svg path for the icon
 		 */
 		path: {
-			type: [String, Object],
+			type: [String, Object, Array]
 		},
 		/**
 		 * The size of the icon when rendered in the browser
 		 */
 		size: {
 			type: [Number, String],
-			default: 24,
+			default: 24
 		},
 		/**
 		 * The SVG viewbox, affects path position, but not render size
@@ -35,15 +41,15 @@ export default {
 		 */
 		flip: {
 			type: String,
-			validator: (value) => ["horizontal", "vertical", "both"].includes(value),
+			validator: (value) => ["horizontal", "vertical", "both"].includes(value)
 		},
 		/**
 		 * Rotate the icon
 		 */
 		rotate: {
 			type: [Number, String],
-			default: 0,
-		},
+			default: 0
+		}
 	},
 	setup(props) {
 		/**
@@ -98,7 +104,7 @@ export default {
 				...svgStyle,
 				"--sx": ["both", "horizontal"].includes(props.flip) ? "-1" : "1",
 				"--sy": ["both", "vertical"].includes(props.flip) ? "-1" : "1",
-				"--r": isNaN(rotateValue.value) ? rotateValue.value : rotateValue.value + "deg",
+				"--r": isNaN(rotateValue.value) ? rotateValue.value : rotateValue.value + "deg"
 			};
 		});
 
@@ -122,6 +128,14 @@ export default {
 			if (type.value === "fad") {
 				console.warn("vue3-icon does not currently support Duotone FontAwesome icons");
 				return h("path");
+			} else if (Array.isArray(props.path)) {
+				return h(
+					"g",
+					{ style: { ...pathStyle } },
+					props.path.map((d) => {
+						return typeof d === "string" ? h("path", { d }) : h("path", { ...d });
+					})
+				);
 			} else return h("path", { d: pathValue.value, style: { ...pathStyle } });
 		});
 
@@ -136,10 +150,10 @@ export default {
 					class: ["vue3-icon"],
 					width: sizeValue.value,
 					height: sizeValue.value,
-					viewBox: viewboxValue.value,
+					viewBox: viewboxValue.value
 				},
 				[inner.value]
 			);
 		};
-	},
+	}
 };

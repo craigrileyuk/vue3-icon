@@ -1,32 +1,29 @@
+# async-assets-loader
+
+[![NPM Version](https://img.shields.io/npm/v/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![NPM Downloads](https://img.shields.io/npm/dt/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
+
 # Vue 3 Icon Component
 
 An icon component which makes it easy to render SVG path-based icons in any Vue 3 project. It provides several helpful properties to manipulate the icon and supports any icon pack which provides icons as a single SVG path to be displayed within a square element.
 
-# Version 2 Notes
-
-As of v2.0.0 of vue3-icon, Vite is being used to create the library files. The file paths are now:
-
-| Module   |  Location              |
-| -------- | ---------------------- |
-| CommonJS | dist/vue3-icon.cjs.js  |
-| ESM      | dist/vue3-icon.es.js   |
-| UMD      | dist/vue3-icon.umd.js  |
-
-All scripts are minified by default with supporting `.map` files
-
 # Installation
 
 Install via NPM
+
 ```
 npm install vue3-icon
 ```
 
 Install via yarn
+
 ```
 yarn add vue3-icon
 ```
 
 # Global Vue Usage
+
 ```js
 import { createApp } from "vue";
 import SvgIcon from "vue3-icon";
@@ -36,7 +33,6 @@ app.component("svg-icon", SvgIcon);
 
 app.mount("#app");
 ```
-
 
 # Local Usage (Options API)
 
@@ -67,6 +63,7 @@ export default {
 ```
 
 ## SFC Examples
+
 All examples assume that the vue3-icon component is installed globally and the Compositon API is used
 
 ### Material Design Icons [@mdi/js](https://www.npmjs.com/package/@mdi/js)
@@ -90,10 +87,11 @@ export default {
 </script>
 ```
 
-### FontAwesome Icons 
-* [@fortawesome/free-solid-svg-icons](https://www.npmjs.com/package/@fortawesome/free-solid-svg-icons)
-* [@fortawesome/free-regular-svg-icons](https://www.npmjs.com/package/@fortawesome/free-regular-svg-icons)
-* [@fortawesome/free-brands-svg-icons](https://www.npmjs.com/package/@fortawesome/free-brands-svg-icons)
+### FontAwesome Icons
+
+-   [@fortawesome/free-solid-svg-icons](https://www.npmjs.com/package/@fortawesome/free-solid-svg-icons)
+-   [@fortawesome/free-regular-svg-icons](https://www.npmjs.com/package/@fortawesome/free-regular-svg-icons)
+-   [@fortawesome/free-brands-svg-icons](https://www.npmjs.com/package/@fortawesome/free-brands-svg-icons)
 
 ```js
 <template>
@@ -115,6 +113,7 @@ export default {
 ```
 
 ### Simple Icons
+
 ```js
 <template>
   <svg-icon type="simple-icons" :path="siAndela.path" size="24"></svg-icon>
@@ -122,7 +121,7 @@ export default {
 
 
 <script>
-import siAndela from 'simple-icons/icons/andela';
+import {siAndela} from 'simple-icons/icons';
 
 export default {
   	setup() {
@@ -135,6 +134,7 @@ export default {
 ```
 
 ### Custom SVG Icons
+
 ```js
 <template>
   <svg-icon :path="myCustomIcon" size="24" viewbox="0 0 24 24"></svg-icon>
@@ -160,8 +160,8 @@ export default {
 | Name    | Type             | Default     | Description                                                                                                                          |
 | ------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | type    | String           | null        | This sets the size and viewbox to match the recommended size for the icon pack specified.                                            |
-| path    | String           | null        | An SVG path to render as an icon.                                                                                                    |
-| fa-icon | Object           | null        | A FontAwesome icon object as imported from one of their available SVG libraries.													  |
+| path    | String \| Array  | null        | An SVG path(s) to render as an icon.                                                                                                 |
+| fa-icon | Object           | null        | A FontAwesome icon object as imported from one of their available SVG libraries.                                                     |
 | size    | Number \| String | 24          | The width and height of the SVG element.                                                                                             |
 | viewbox | String           | "0 0 24 24" | The `viewBox` of the SVG element.                                                                                                    |
 | flip    | String           | null        | One of "horizontal", "vertical", or "both". Flips the icon in the specified direction(s).                                            |
