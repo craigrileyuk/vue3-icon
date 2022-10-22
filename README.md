@@ -1,5 +1,3 @@
-# async-assets-loader
-
 [![NPM Version](https://img.shields.io/npm/v/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![NPM Downloads](https://img.shields.io/npm/dt/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
