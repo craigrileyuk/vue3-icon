@@ -1,0 +1,31 @@
+{
+    "name": "vue3-icon-demo",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vite --host",
+        "prod": "vite build",
+        "deploy": "gh-pages -d ./dist"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@fortawesome/free-brands-svg-icons": "^6.6.0",
+        "@fortawesome/free-regular-svg-icons": "^6.6.0",
+        "@fortawesome/free-solid-svg-icons": "^6.6.0",
+        "@mdi/js": "^7.4.47",
+        "autoprefixer": "^10.4.20",
+        "gh-pages": "^6.1.1",
+        "postcss": "^8.4.47",
+        "simple-icons": "^13.11.0",
+        "tailwindcss": "^3.4.13"
+    },
+    "dependencies": {
+        "@eslint/js": "^9.11.1",
+        "eslint-plugin-vue": "^9.28.0",
+        "globals": "^15.9.0"
+    }
+}

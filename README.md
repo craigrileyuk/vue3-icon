@@ -1,26 +1,24 @@
 [![NPM Version](https://img.shields.io/npm/v/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Licence: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENCE)
 [![NPM Downloads](https://img.shields.io/npm/dt/vue3-icon.svg?style=flat-square)](https://www.npmjs.com/package/vue3-icon)
 
-# Vue 3 Icon Component
+# Vue 3 Icon
 
 An icon component which makes it easy to render SVG path-based icons in any Vue 3 project. It provides several helpful properties to manipulate the icon and supports any icon pack which provides icons as a single SVG path to be displayed within a square element.
 
-# Installation
-
-Install via NPM
+## Installation
 
 ```
 npm install vue3-icon
-```
-
-Install via yarn
-
-```
+# OR
 yarn add vue3-icon
+# OR
+pnpm add vue3-icon
 ```
 
-# Global Vue Usage
+## Usage
+
+### Global Vue Usage
 
 ```js
 import { createApp } from "vue";
@@ -32,7 +30,7 @@ app.component("svg-icon", SvgIcon);
 app.mount("#app");
 ```
 
-# Local Usage (Options API)
+### Local Usage (Options API)
 
 ```js
 <script>
@@ -45,7 +43,7 @@ export default {
 </script>
 ```
 
-# Local Usage (Composition API)
+### Local Usage (Composition API)
 
 ```js
 <script>
@@ -60,13 +58,13 @@ export default {
 </script>
 ```
 
-## SFC Examples
+### SFC Examples
 
 All examples assume that the vue3-icon component is installed globally and the Compositon API is used
 
 ### Material Design Icons [@mdi/js](https://www.npmjs.com/package/@mdi/js)
 
-```js
+```html
 <template>
   <svg-icon type="mdi" :path="mdiAccount" :size="48"></svg-icon>
 </template>
@@ -91,7 +89,7 @@ export default {
 -   [@fortawesome/free-regular-svg-icons](https://www.npmjs.com/package/@fortawesome/free-regular-svg-icons)
 -   [@fortawesome/free-brands-svg-icons](https://www.npmjs.com/package/@fortawesome/free-brands-svg-icons)
 
-```js
+```html
 <template>
   <svg-icon :fa-icon="faCoffee" :size="96" flip="horizontal"></svg-icon>
 </template>
@@ -112,7 +110,7 @@ export default {
 
 ### Simple Icons
 
-```js
+```html
 <template>
   <svg-icon type="simple-icons" :path="siAndela.path" size="24"></svg-icon>
 </template>
@@ -133,7 +131,7 @@ export default {
 
 ### Custom SVG Icons
 
-```js
+```html
 <template>
   <svg-icon :path="myCustomIcon" size="24" viewbox="0 0 24 24"></svg-icon>
 </template>
@@ -153,7 +151,7 @@ export default {
 </script>
 ```
 
-# Props
+## Props
 
 | Name    | Type             | Default     | Description                                                                                                                          |
 | ------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -165,10 +163,10 @@ export default {
 | flip    | String           | null        | One of "horizontal", "vertical", or "both". Flips the icon in the specified direction(s).                                            |
 | rotate  | Number \| String | 0deg        | Rotates the icon by the specified value. Can be any valid [CSS angle](https://developer.mozilla.org/en-US/docs/Web/CSS/angle) value. |
 
-# Styling
+## Styling
 
-By default the icon will inherit the current font color of the container it is placed within. You can easily provide a specific color using an inline style on the element (`style="color: red"`) or can target the tag as normal with CSS rules.
+By default, the icon will inherit the current font colour of the container it is placed within. You can easily provide a specific colour using an inline style on the element (`style="color: red"`) or can target the tag as normal with CSS rules.
 
-# Accessibility
+## Accessibility
 
 You should make use of aria attributes to improve accessibility for users that use screen reading technology. You can use `aria-labelledby` to create a link between an icon and its label. A descriptive `aria-label` can be used to allow screen readers to announce an icon if there is no visual label to accompany it.
