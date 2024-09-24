@@ -124,20 +124,40 @@ export default {
 		/**
 		 * Generate the vNode to go inside the SVG element
 		 */
-		const inner = computed(() => {
-			if (type.value === "fad") {
-				console.warn("vue3-icon does not currently support Duotone FontAwesome icons");
-				return h("path");
-			} else if (Array.isArray(props.path)) {
-				return h(
-					"g",
-					{ style: { ...pathStyle } },
-					props.path.map((d) => {
-						return typeof d === "string" ? h("path", { d }) : h("path", { ...d });
-					})
-				);
-			} else return h("path", { d: pathValue.value, style: { ...pathStyle } });
-		});
+		const Path = {
+			props: {
+				type: {
+					type: String,
+					required: true
+				},
+				path: {
+					type: [String, Object, Array],
+					required: false
+				},
+				pathString: {
+					type: [Array, String, Object],
+					required: false
+				}
+			},
+			setup(props) {
+				return () => {
+					if (props.type === "fad") {
+						console.warn("vue3-icon does not currently support Duotone FontAwesome icons");
+						return h("path");
+					} else if (Array.isArray(props.path)) {
+						return h(
+							"g",
+							{ style: { ...pathStyle } },
+							props.path.map((d) => {
+								return typeof d === "string" ? h("path", { d }) : h("path", { ...d });
+							})
+						);
+					} else {
+						return h("path", { d: props.pathString, style: { ...pathStyle } });
+					}
+				};
+			}
+		};
 
 		/**
 		 * Return the vNode render function
@@ -152,7 +172,7 @@ export default {
 					height: sizeValue.value,
 					viewBox: viewboxValue.value
 				},
-				[inner.value]
+				[h(Path, { path: props.path, type: type.value, pathString: pathValue.value })]
 			);
 		};
 	}
