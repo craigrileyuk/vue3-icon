@@ -1,5 +1,13 @@
 # Changelog
 
+## v3.0.0 
+
+- **Improvement**: Moved to ESM-first package
+- **Feature**: Refactored Path rendering to improve compatibility with later Vue versions
+- **Feature**: New props for `no-styles`, `no-dimensions` and `no-namespace`
+- **Feature**: Added IIFE build to output
+- **Improvement**: Added JSDoc type build
+
 ## v2.1.0
 
 -   Added support for custom icons with path arrays

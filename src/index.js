@@ -107,7 +107,7 @@ export default {
             default: false
         },
         /**
-         * Don't add any styles to SVG, disables flip and rotate
+         * Don't add the width/height attributes to the SVG element
          */
         noDimensions: {
             type: Boolean,

@@ -162,6 +162,9 @@ export default {
 | viewbox | String           | "0 0 24 24" | The `viewBox` of the SVG element.                                                                                                    |
 | flip    | String           | null        | One of "horizontal", "vertical", or "both". Flips the icon in the specified direction(s).                                            |
 | rotate  | Number \| String | 0deg        | Rotates the icon by the specified value. Can be any valid [CSS angle](https://developer.mozilla.org/en-US/docs/Web/CSS/angle) value. |
+| no-namespace | Boolean     | false       | Don't render the xml namespace attribute on the SVG element.                                                                         |
+| no-styles | Boolean        | false       | Don't render any SVG/Path styles (handle externally), disables flip and rotate.                                                      |
+| no-dimensions | Boolean    | false       | Don't render the width or height attributes.                                                                                         |
 
 ## Styling
 
