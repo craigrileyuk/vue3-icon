@@ -12,8 +12,8 @@
             "umd": "./dist/vue3-icon.umd.cjs",
             "browser": "./dist/vue3-icon.umd.cjs",
             "unpkg": "./dist/vue3-icon.umd.cjs",
-            "require": "./dist/vue3-icon.cjs",
-            "import": "./dist/vue3-icon.js"
+            "import": "./dist/vue3-icon.js",
+            "require": "./dist/vue3-icon.cjs"
         }
     },
     "files": [
@@ -56,7 +56,7 @@
         "happy-dom": "^15.7.4",
         "prettier": "^3.3.3",
         "typescript": "^5.6.2",
-        "vite": "^5.4.7",
+        "vite": "^5.4.8",
         "vitest": "^2.1.1",
         "vue": "^3.5.8",
         "vue-tsc": "^2.1.6"
