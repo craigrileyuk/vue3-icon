@@ -8,12 +8,16 @@
     "types": "./types/index.d.ts",
     "exports": {
         ".": {
-            "iife": "./dist/vue3-icon.iife.js",
-            "umd": "./dist/vue3-icon.umd.cjs",
-            "browser": "./dist/vue3-icon.umd.cjs",
-            "unpkg": "./dist/vue3-icon.umd.cjs",
+            "types": "./types/index.d.ts",
             "import": "./dist/vue3-icon.js",
-            "require": "./dist/vue3-icon.cjs"
+            "require": "./dist/vue3-icon.cjs",
+            "browser": {
+                "import": "./dist/vue3-icon.js",
+                "default": "./dist/vue3-icon.umd.cjs"
+            },
+            "unpkg": "./dist/vue3-icon.umd.cjs",
+            "umd": "./dist/vue3-icon.umd.cjs",
+            "iife": "./dist/vue3-icon.iife.js"
         }
     },
     "files": [
