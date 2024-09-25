@@ -1,43 +1,52 @@
 import { h, computed } from "vue";
-import { svgStyle, pathStyle } from "./style.js";
+import { svgStyle } from "./style.js";
 import { iconSettings } from "./iconSettings.js";
 
 /**
  * Generate the vNode to go inside the SVG element
  */
 const Path = {
-    props: {
-        type: {
-            type: String,
-            required: true
-        },
-        path: {
-            type: [String, Object, Array],
-            required: false
-        },
-        pathString: {
-            type: [Array, String, Object],
-            required: false
-        }
-    },
-    setup(props) {
-        return () => {
-            if (props.type === "fad") {
-                console.warn("vue3-icon does not currently support Duotone FontAwesome icons");
-                return h("path");
-            } else if (Array.isArray(props.path)) {
-                return h(
-                    "g",
-                    { style: { ...pathStyle } },
-                    props.path.map((d) => {
-                        return typeof d === "string" ? h("path", { d }) : h("path", { ...d });
-                    })
-                );
-            } else {
-                return h("path", { d: props.pathString, style: { ...pathStyle } });
-            }
-        };
-    }
+	props: {
+		type: {
+			type: String,
+			required: true
+		},
+		path: {
+			type: [String, Object, Array],
+			required: false
+		},
+		pathString: {
+			type: [Array, String, Object],
+			required: false
+		}
+	},
+	setup(props) {
+		return () => {
+			if (props.type === "fad") {
+				console.warn("vue3-icon does not currently support Duotone FontAwesome icons");
+				return h("path");
+			} else if (Array.isArray(props.path)) {
+				return h(
+					"g",
+					{
+						style: {
+							fill: "currentcolor"
+						}
+					},
+					props.path.map((d) => {
+						return typeof d === "string" ? h("path", { d }) : h("path", { ...d });
+					})
+				);
+			} else {
+				return h("path", {
+					d: props.pathString,
+					style: {
+						fill: "currentcolor"
+					}
+				});
+			}
+		};
+	}
 };
 
 export default {
@@ -74,15 +83,15 @@ export default {
 		 * The SVG viewbox, affects path position, but not render size
 		 */
 		viewbox: {
-            type: String,
-            required: false
-        },
+			type: String,
+			required: false
+		},
 		/**
 		 * Flip the icon either horizontally, vertically, or both
 		 */
 		flip: {
 			type: String,
-            default: "",
+			default: "",
 			validator: (value) => ["", "horizontal", "vertical", "both"].includes(value)
 		},
 		/**
@@ -92,27 +101,27 @@ export default {
 			type: [Number, String],
 			default: 0
 		},
-        /**
-         * Don't add the XML namespace attribute
-         */
-        noNamespace: {
-            type: Boolean,
-            default: false
-        },
-        /**
-         * Don't add any styles to SVG, disables flip and rotate
-         */
-        noStyles: {
-            type: Boolean,
-            default: false
-        },
-        /**
-         * Don't add the width/height attributes to the SVG element
-         */
-        noDimensions: {
-            type: Boolean,
-            default: false
-        }
+		/**
+		 * Don't add the XML namespace attribute
+		 */
+		noNamespace: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Don't add any styles to SVG, disables flip and rotate
+		 */
+		noStyles: {
+			type: Boolean,
+			default: false
+		},
+		/**
+		 * Don't add the width/height attributes to the SVG element
+		 */
+		noDimensions: {
+			type: Boolean,
+			default: false
+		}
 	},
 	setup(props) {
 		/**
@@ -163,13 +172,14 @@ export default {
 		 * Dynamically generated styles that will be applied to the svg element
 		 */
 		const generatedStyle = computed(() => {
-            if (props.noStyles === true) return undefined;
-			else return {
-				...svgStyle,
-				"--sx": ["both", "horizontal"].includes(props.flip) ? "-1" : "1",
-				"--sy": ["both", "vertical"].includes(props.flip) ? "-1" : "1",
-				"--r": isNaN(rotateValue.value) ? rotateValue.value : rotateValue.value + "deg"
-			};
+			if (props.noStyles === true) return undefined;
+			else
+				return {
+					...svgStyle,
+					"--sx": ["both", "horizontal"].includes(props.flip) ? "-1" : "1",
+					"--sy": ["both", "vertical"].includes(props.flip) ? "-1" : "1",
+					"--r": isNaN(rotateValue.value) ? rotateValue.value : rotateValue.value + "deg"
+				};
 		});
 
 		/* ******************************************
@@ -192,12 +202,12 @@ export default {
 			return h(
 				"svg",
 				{
-                    xmlns: props.noNamespace !== true ? "http://www.w3.org/2000/svg" : undefined,
+					xmlns: props.noNamespace !== true ? "http://www.w3.org/2000/svg" : undefined,
 					style: generatedStyle.value,
 					class: ["vue3-icon"],
 					width: props.noDimensions !== true ? sizeValue.value : undefined,
 					height: props.noDimensions !== true ? sizeValue.value : undefined,
-					viewBox: viewboxValue.value,
+					viewBox: viewboxValue.value
 				},
 				[h(Path, { path: props.path, type: type.value, pathString: pathValue.value })]
 			);
