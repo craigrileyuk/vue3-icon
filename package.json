@@ -1,6 +1,6 @@
 {
     "name": "vue3-icon",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "Icon component for Vue 3",
     "type": "module",
     "main": "./dist/vue3-icon.cjs",
