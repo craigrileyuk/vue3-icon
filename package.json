@@ -28,7 +28,7 @@
         "demo": "pnpm --filter='vue3-icon-demo' run dev",
         "demo:build": "pnpm --filter='vue3-icon-demo' run prod",
         "demo:deploy": "pnpm --filter='vue3-icon-demo' run deploy",
-        "prepublishOnly": "npm run test && npm run build && npm run build:types"
+        "prepublishOnly": "vitest --run && npm run build && npm run build:types"
     },
     "repository": {
         "type": "git",
